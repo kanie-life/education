@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kanie.education.admin.basicfunction.po.UmUser">
+
+    <select id="queryUserBy" parameterType="map" resultType="com.kanie.education.admin.basicfunction.po.UmUser">
+        SELECT * FROM um_user
+        where 1=1
+        <if test="loginAccount != null">
+            and login_account = #{loginAccount}
+        </if>
+    </select>
+</mapper>

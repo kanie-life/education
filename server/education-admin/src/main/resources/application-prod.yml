@@ -1,0 +1,5 @@
+#关闭swagger
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: false

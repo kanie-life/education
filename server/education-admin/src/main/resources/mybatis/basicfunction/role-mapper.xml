@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kanie.education.admin.basicfunction.po.UmRole">
+
+    <select id="queryRoleByUserId" resultType="com.kanie.education.admin.basicfunction.po.UmRole" parameterType="map">
+        select ur.* from um_user_role uur
+        join um_role ur on uur.role_id = ur.role_id
+        where uur.user_id=#{userId}
+    </select>
+
+    <select id="queryResourceListByUserId" resultType="com.kanie.education.admin.basicfunction.po.UmResource" parameterType="map">
+        select ur.* from um_user_role uur
+        join um_role_resource urr on uur.role_id = urr.role_id
+        join um_resource ur on urr.resource_id = ur.resource_id
+        where uur.user_id=#{userId}
+    </select>
+
+    <select id="queryResourceList" resultType="com.kanie.education.admin.basicfunction.po.UmResource" parameterType="map">
+        select * from um_resource
+    </select>
+
+    <select id="queryMenuListByUserId" resultType="com.kanie.education.admin.basicfunction.po.UmMenu" parameterType="map">
+        select um.* from um_user_role uur
+        join um_role_menu urm on uur.role_id = urm.role_id
+        join um_menu um on urm.menu_id = um.menu_id
+        where uur.user_id=#{userId}
+    </select>
+</mapper>
